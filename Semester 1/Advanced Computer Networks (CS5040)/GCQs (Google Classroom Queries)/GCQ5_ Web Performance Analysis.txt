@@ -1,0 +1,91 @@
+﻿GCQ5: Web Performance Analysis
+10 points
+Due Sep 3, 2024
+§ Analyze web performance of website #N in this <https://ahrefs.com/top&gt; list of top-100 most visited websites globally where is #N is the last two digits in your roll number using these online measurement tools:
+•https://pagespeed.web.dev
+•https://www.webpagetest.org/
+
+
+References
+•https://www.tunetheweb.com/blog/why-do-we-need-http2/
+•https://web.dev/articles/vitals
+•https://almanac.httparchive.org/en/2022/performance
+•https://www.tunetheweb.com/performance/
+•https://webkit.org/web-inspector/
+•https://developer.chrome.com/docs/devtools/overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1) https://pagespeed.web.dev/
+Link of performance analysis-
+https://pagespeed.web.dev/analysis/https-whatsapp-com/1u6mi107wj?form_factor=mobile
+
+
+A) For whatsapp  mobile
+The performance  test for whatsapp.com mobile is failed here.
+The performance score is  44 which summary various metrics that impacts performance of page.
+First contentful Paint: The time required for rendering 1st piece of content on the screen is FCP.Here the, first contentful paint is 2.3s, its a decent FCP, but an improvement is needed..
+Largest Contentful Paint: This is the time taken for rendering largest piece of content. Here the largest contentful paint is within the acceptable range 2.8 seconds which needs improvement and should be less than 2.5 seconds.
+Interaction to next point: THe INP here is 145 ms, which is considered as very good.
+First Input Delay: The first input delay is 16 ms, its a good time.
+Cumulative layout shift:  The cumulative layout shift here is 0.. For better experience, lower CLS is good which shows that page elements are not shifting unexpectedly.
+Time to First Byte: This time is 1.2 seconds here which needs improvement.
+Total Blocking Time: The total blocking time for whatsapp.com is 100 milliseconds which is a very good blocking time which indicates better interactivity.
+Speed Index:  Here its value  is 7.4 seconds which is  very poor, it indicates slower performance.
+Accessibility- 81 accessibility indicates a decent score but need improvement for accessing the site by peoples.
+Best Matrices- The obtained score 75 also needs improvement but suitable for most tasks.
+SEO- The SEO obtained is 92 which shows it is excellent optimized.
+
+
+B) For whatsapp desktop
+whatsapp.com is passed in the performance analysis test of https://pagespeed.web.dev/ 
+Largest Contentful Paint: An LCP of 2 seconds is quite good, which indicates that the quick loading of main content.
+Interaction to next paint: Here it is 32 ms which is excellent indicating that for user inputs page responds very quickly.
+Cumulative Layout shits: 0.01 CLS is very low shows an minimal unexpected shifts which is required for better user experience.
+First Contentful Paint: FCP of 1.7 s  is good which means users quickly see something on the screen.
+First Input Delay: An first input delay of 2 ms is excellent, which shows very fast responsiveness.
+Time to First Byte: Here its value is 0.8 s which is a decent value but it needs some improvement.
+Speed Index:  2.7 seconds speed index is quite good means the page loads in a reasonable time.
+Performance: The performance score 72 is good but needs improvement.
+Accessibility: A accessibility score of 90 is excellent which shows the page is highly accessible.
+Best practices: This score is 78 here which is good but there is room for improvement in adherence to web development.
+SEO: An SEO score of 92 is excellent shows strong SEO practices which tells the page is perfectly optimized for search engines.
+
+
+
+
+2) https://www.webpagetest.org/ 
+Link of analysis-
+https://www.webpagetest.org/result/240902_BiDc3D_C1G/?view=webvitals 
+
+
+Largest Contentful Paint:  LCP time is 9168 ms which is quite high which meansfor for loading the main content the page takes long time. For LCP event , size is 132512 px2 for loading image.
+
+
+Cumulative Layout Shift: CLS time is  0.444 s  is relatively high which indicates that noticeable layout shifts might be experience by user which is obviously frustrating of any user.
+Total Blocking TIme: The TBT of 1.51 seconds indicates that for 1.51 seconds, due to long tasks the page was not responsive.
+
+
+Main Thread Blocking time:
+ For static.whatsapp.net  - The main thread is blocked for 582 ms by the script from static.whatsapp.net origin.
+ For www.whatsapp.com- The main thread is blocked for 142 ms by the script from www.whatsapp.com origin.
+Waterfall chart with different colors indicates various events and their timing during page loading process. Main events like First byte, start render, DOM content loaded and on load are marked which clearly indicate how the page loads. On the left side there is a list of activities that needs to be completed and right side shows the timeline which indicates when the each task starts and ends. First whatsapp.com starts with dns followed by connect and then html request which concludes that it should require www.whatsapp/com for further loading and same happens in 1523 ms.

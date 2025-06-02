@@ -1,0 +1,43 @@
+﻿GCQ8: Revisiting Page Loading with TCP
+15 points
+Due Oct 30, 2024
+Suppose in a web browser, you click on the www.gate-2024.in URL. The browser
+cache is empty. The IP address for this URL is not cached in your local host, so
+a DNS lookup is triggered (by the local DNS server deployed on your local host)
+over the 3-tier DNS hierarchy in an iterative mode. No resource records are cached
+anywhere across all DNS servers. Let RTT denote the round trip time between your
+local host and DNS servers in the DNS hierarchy. The round trip time between the
+local host and the web server hosting www.gate-2024.in is also equal to RTT. The
+HTML file associated with the URL is of 9*MSS, which references 4 same sized
+objects on the same web server. Assume that transmission time of one MSS is
+RTT/10 while transmission times for HTTP GET messages and TCP 3-way
+handshake messages at the respective senders are negligible i.e., ZERO. Further, ignore space occupied by HTTP headers while exchanging TCP segments back-and-forth. Assume that RTO is fixed at 5*RTT.
+
+
+a. Assuming non-persistent HTTP with 2 parallel TCP-Reno connections that could be opened between the browser and server, how long is. the response time -- the time from the when you request the base HTML file by entering its URL in the browser to the point in time when the HTML page and its embedded objects are downloaded and ready for rendering by the browser? Draw a message flow diagram to illustrate your answer.
+
+
+b. Now suppose persistent HTTP with pipelining is used with one TCP-Reno connection. What is the response time?
+
+
+c. Answer part(b) again by now factoring in packet losses due to network congestion. Let’s consider this loss model: every 5th packet from the web server to the client is getting lost somewhere along the way in each TCP session.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Solution:
+https://docs.google.com/document/d/1oNhlmOPoRF3idTE8B9TzLBuX3B5GucmXgP-aTV2FTv0/edit?tab=t.0

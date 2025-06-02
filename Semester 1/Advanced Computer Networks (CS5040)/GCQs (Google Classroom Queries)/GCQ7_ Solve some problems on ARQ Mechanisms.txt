@@ -1,0 +1,208 @@
+﻿GCQ7: Solve some problems on ARQ Mechanisms
+20 points
+Due Oct 13, 2024
+Q1. Consider the Go-Back-N protocol with sender window size (SWS) of n and 32-bit sequence number space. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that medium does not reorder messages. Answer these questions:
+a) What are the possible sets of sequence numbers inside the sender’s window at time t? Justify your answer.
+b) What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time t? Justify your answer.
+
+
+Q2. Compare Go-Back-N, Selective Repeat and TCP ARQ mechanisms. Assume that the timeout values for all the protocols are sufficiently long such that 5 consecutive data segments and their corresponding ACKs can be received (if not lost in the channel) by the receiving host (Host B) and the sending host (Host A) respectively before the timeout. Suppose Host A sends 5 data segments to Host B, and the 2nd segment (sent from A) is lost. In the end, all 5 segments have been correctly received by Host B.
+a) How many segments has Host A sent in total and how many ACKs has Host B sent in total? What are their sequence numbers? Answer this question for all the protocols.
+b) If the timeout values for all the protocols are much longer than 5 RTTs, then which protocol successfully delivers all five data segments in shortest time interval and why?
+
+
+Q3. Consider the following chain topology: A ------ B ------- C -------- D ------- E. Host A is sending packets to E using a reliable transport protocol (rdt 3.0 discussed in the class). Each link in the chain can transmit one packet per second. There are no queues or other sources of delays at the nodes (except the transmission delay of course).
+a) What is the round-trip-delay from host A and to host E?
+b) What is the throughput of a stop-and-wait protocol at host A in the absence of any losses at the nodes in the chain?
+c) If host A decides to run a sliding window protocol, what is the optimum window size it must use? What is the throughput achieved when using this optimum window size?
+
+
+Q4. Consider transferring an enormous file of L bytes from host A to host B. Assume that TCP’s MSS is 1460 bytes.
+a) What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that TCP sequence number field has 4 bytes.
+b) For the value of L you obtained in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data link headers are added to each segment. The link speed is 100 Mbps. Ignore propagation delay, flow and congestion control so the host A can pump out the segments back-to-back and continuously till it finishes transmission of all the L bytes of the file.
+
+
+PS: Some of you will also be asked to work out these solutions on board when we meet on October 14th and your (live) performance will be taken into account while awarding marks for this GC query. So, sincerely read relevant text from the textbook and put effort to really understand solutions given by LLMs. Note that LLMs may fail to correctly answer these questions, so use them at your own risk!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Solution:
+Solution 1)
+Sender window size= n
+a)Possible sequence numbers inside sender’s window at time t are k to (k + n-1).
+
+
+Sender can transmit multiple packets in Go Back N, protocol  before waiting for an acknowledgment, but this is constrained by the sender window size which is given as n here. At time t, when the receiver is  expecting packet with sequence number k, that time sender can send unacknowledged packets up to  up to sender window size which is n.
+
+
+So, at sensor window contain the packets starting with sequence number k to packers present in current window. Hence, the possible range of sequence numbers inside the sender’s window will be from k to  (k + n-1).
+
+
+b)The receiver has received packets up to k−1, as it is expecting packet k. It have earlier ack travelling. As window size is n and  due to propagation delays, earlier ACKs (from k−n to k -1) may still be in transit, corresponding to previously received packets. Hence all possible values of the ACK field in all possible messages currently propagating back to the sender at time t are K- n to (k-1).
+
+
+
+
+
+
+Solution 2)
+a)Assuming sender window size greater than or equal ṭo 5.
+1) Solving for Go back n,
+Host A (Sender) will send all 5 segments, as segment 2 get lost, Host B (receiver) will not get that segment, Host B will accept segment 1 send acknowledgement for that segment. When Host B will receive segments 3,4,5 it will discard segments that send ack1 (cumulative ack) for each segment it receives. After that timeout of segment 2, Host A will retransmit the segment 2 and then continue retransmitting segments 3,4,5.
+
+
+Total segments sent by Host A-
+Initially, Host A sends 5 segments (1,2,3,4,5), out of which segment 2 is lost. So, it will retransmit 4 segments (2, 3, 4, 5).
+So total segments send by host A are 5+4= 9 segments.
+The sequence number of that segments are 1,2,3,4,5, 2,3,4,5 respectively.
+
+
+Total ACKs Sent by Host B-
+At the beginning the host B send ack for first segment when it receives 1st segment, then for segments 3,4,5 it again sends ack1, then for retransmitted segments by host A it send acks 2,3,4,5.
+So, total acks send by host B are 8.
+The sequence number of that acks are 1,1,1,1, 2,3,4,5.
+
+
+
+
+2) Selective Repeat-
+Host A (Sendor) will send all 5 segments, as segment 2 get lost, Host B (receiver) will not get that segment, Host B will accept segment 1 send acknowledgement for that segment. When Host B will receive segments 3,4,5 it will store them in buffer and ack for them. After timeout host A will retransfer only 2nd segment.
+
+
+Total Segments Sent by Host A-
+Initially host A will send 5 segments (1,2,3,4,5) as 2 lost, it will retransmit 2nd segment.
+So, total segments sent by host A are 6 segments.
+The sequence number of that segments are 1,2,3,4,5,2.
+
+
+
+
+Total ACKs Sent by Host B-
+When host B receives segment 1, it sends ack 1 and it sends ack for each segment 3,4,5,2.
+So, total acks sent by host B are 5.
+The sequence number of that segments are 1,3,4,5,2
+
+
+
+
+3) TCP ARQ
+TCP ARQ uses the cumulative acks like go back n, ack sent for highest inorder ack received. Host A (Sendor) will send all 5 segments, as segment 2 get lost, Host B (receiver) will not get that segment, Host B will accept segment 1 send acknowledgement for that segment. Host B will receive segment 3,4,5 but it will not acknowledge them as segment 3 is still missing and it will buffer segment 3,4,5, it will send duplicate ack for segment 1 for buffered segments. After timeout of segment 2, host B will acknowledge entire in order segments.
+
+
+
+
+Total Segments Sent by Host A-
+Total segments sent by host A are 6 segments which includes 5 initial and 1 retransmitted segment.
+The sequence number of that segments are 1,2,3,4,5,2.
+
+
+
+
+Total ACKs Sent by Host B-
+Total acks sent by host B are 5 one ack for each segment.
+The sequence number of that segments are 2,2,2,2,6.
+
+
+b)TCP ARQ protocol will deliver all 5 segments in shortest time interval, it have fast retransmit mechanism which allows to retransmit lost segment (2nd segment here) without waiting for timeout. Once 3 duplicate acks are received, it will retransmit segment 2 which will delay compared to other protocol which wait for timeout. In go back n it suffers from delay as it needs to retransmit all subsequent segments after the lost one, due to which unnecessary retransmissions happens which increases total transmission time. In selective repeat it have to wait for timeout or explicit NAC before retransmitting which causes more delay compared to tcp fast retransmission mechanism.
+
+
+Solution 3)
+A → B → C → D → E 
+Let one packet is of p bits.
+
+
+a)The round trip time will include the time required to for a packet from Host A to host E and time required for its acknowledgment to travel from Host E to Host A. Given that each link has transmission delay of 1 second. 
+Time required for a packet to reach host E will be 4 seconds as we have 4 links. 
+Time required for acknowledgement to travel from Host E to Host A will be again 4 seconds .
+So RTT = time required to travel from A to E + time required to travel from E to A
+        = 4+4
+        = 8 seconds
+
+
+b)Throughput is amount of data sent per unit time.
+In stop and wait protocol , host A waits for an ack from host E before sending next packet.
+RTT calculated above is 8 seconds and host A can send1 packet in every 8 seconds.
+Throughput = (1 packet)/ (RTT)
+        =(p bits)/ (8 seconds)
+        =p/8 bits per second.
+
+
+c)Optimum Window Size-
+Optimum window size is maximum no. of packets that can be sent before receiving any ack during one round trip time.
+Optimum window size = (Round trip time)/ (transmission time per packet)
+        =(8 second)/ (1 second per packet)
+        = 8 packets
+
+
+Throughput with Optimum window size- 
+In sliding window protocol, throughput is determined by number of packets sent in one round trip time.
+Considering optimum window size of 8 packets,
+Throughput = (total bit)/ RTT
+        =8 packets/ 8 seconds
+        = 1 packet per second
+        = p bits per second
+
+
+
+
+Solution 4)
+        MSS =1460 bytes
+a)As TCP uses 4 byte sequence no. field, means 32-bit, so 2^32 sequence no. are possible and for each byte 1 sequence number is assigned. Therefore,  2^32 sequence no. will be assigned to 2^32  Bytes.
+Therefore,  maximum value of L  = 2^32 bytes= 4294967296 bytes 
+
+
+b)R = 100 Mbps
+Each TCP segment have data of 1460 bytes and each segment gets 66 bytes of header.
+So, total size of each packet will be,
+        1460+66=1526 bytes
+Number of segments = ceil[4294967296 / 1460]
+                        = 2,941,759 segments
+
+
+Total header size for all segments = (2,941,759 segments) * 66 bytes
+                                        =194156094 bytes
+Total data + header transmitted = L + total header size for all segments
+                                        =4294967296 +194156094
+                                        = 4489123390 bytes
+Total time required to transmit file = file size/ R
+                = 4489123390 / 100 Mbps
+                = (4489123390 *8)/(100,000,000)
+                =359.12 seconds
+Therefore, total time required to transmit file is 359.12 seconds

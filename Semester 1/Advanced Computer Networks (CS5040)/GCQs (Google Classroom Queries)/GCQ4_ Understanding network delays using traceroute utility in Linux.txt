@@ -1,0 +1,155 @@
+﻿GCQ4: Understanding network delays using traceroute utility in Linux
+30 points
+Due Aug 12, 2024
+Run traceroute command on three different destination hosts (e.g., a local server like IITH website or CSE@IITH website, a web server in another country like MIT website, and a popular website like google.com or Facebook.com) from your laptop by connecting it to two access networks: a) IITH LAN or Wi-Fi network and b) 4G or 5G network by creating a hotspot on your mobile phone, and record the outputs. Analyse the outputs to identify the number of hops (routers) between your source and the destination for each traceroute and observe how delays (Round-Trip-Times (RTTs)) vary from hop to hop. Identify any significant increases in delay between consecutive hops. Hypothesize why these increases might occur, considering factors like queuing, congestion, or routing changes. Compare the traceroute results for the three different destinations over two access networks in terms of a) How does the number of hops change with the geographic distance to the destination?, b) How do the RTT values change with distance and network path?, and c) Are there any patterns in delay fluctuations? What might be causing these? List out if there are any key findings or strange patterns.
+
+
+
+
+
+
+
+
+
+
+I have run traceroute command on iith.ac.in, web.mit.edu, www.google.com using IITH Wi-Fi network and 4G network by hotspot of mobile phone.
+
+
+A) IIT Wi-Fi
+ubuntu@ubuntu:~$ sudo traceroute -I iith.ac.in
+traceroute to iith.ac.in (192.168.36.56), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  7.785 ms  0.365 ms *
+ 2  192.168.0.1 (192.168.0.1)  1.604 ms * *
+ 3  * * *
+ 4  192.168.41.1 (192.168.41.1)  1.705 ms * *
+ 5  192.168.8.19 (192.168.8.19)  4.031 ms * *
+ 6  www.iith.ac.in (192.168.36.56)  13.905 ms * *
+ubuntu@ubuntu:~$ sudo traceroute -I web.mit.edu
+traceroute to web.mit.edu (104.120.72.133), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  0.413 ms * *
+ 2  192.168.0.1 (192.168.0.1)  3.804 ms * *
+ 3  * * *
+ 4  192.168.41.1 (192.168.41.1)  2.968 ms  3.087 ms  2.713 ms
+ 5  192.168.8.18 (192.168.8.18)  3.574 ms  2.739 ms  2.109 ms
+ 6  noc-cr-in.comp.iith.ac.in (103.232.241.2)  4.698 ms * *
+ 7  noc-cn-in.comp.iith.ac.in (10.119.254.121)  10.802 ms * *
+ 8  10.160.24.5 (10.160.24.5)  5.258 ms * *
+ 9  10.255.222.33 (10.255.222.33)  5.626 ms * *
+10  115.247.100.29 (115.247.100.29)  5.951 ms * *
+11  * * *
+12  49.44.129.94 (49.44.129.94)  40.841 ms  36.120 ms  35.721 ms
+13  a104-120-72-133.deploy.static.akamaitechnologies.com (104.120.72.133)  33.140 ms  23.570 ms  22.870 ms
+ubuntu@ubuntu:~$ sudo traceroute -I www.google.com
+traceroute to www.google.com (142.250.77.132), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  10.851 ms  0.320 ms  0.393 ms
+ 2  192.168.0.1 (192.168.0.1)  2.266 ms * *
+ 3  * * *
+ 4  192.168.41.1 (192.168.41.1)  2.360 ms  2.430 ms  2.639 ms
+ 5  192.168.8.19 (192.168.8.19)  3.209 ms  2.695 ms  2.377 ms
+ 6  noc-cr-in.comp.iith.ac.in (103.232.241.2)  4.632 ms  5.136 ms  5.481 ms
+ 7  noc-cn-in.comp.iith.ac.in (10.119.254.121)  4.900 ms  8.032 ms *
+ 8  10.160.24.5 (10.160.24.5)  22.805 ms  22.479 ms  21.982 ms
+ 9  10.255.232.226 (10.255.232.226)  21.647 ms  22.299 ms  21.992 ms
+10  10.119.73.122 (10.119.73.122)  28.337 ms  31.515 ms  30.688 ms
+11  72.14.213.20 (72.14.213.20)  23.635 ms  26.620 ms *
+12  142.251.227.211 (142.251.227.211)  25.544 ms * *
+13  142.251.55.207 (142.251.55.207)  33.961 ms * *
+14  maa05s16-in-f4.1e100.net (142.250.77.132)  21.839 ms * *
+
+
+B) 4G mobile network (hotspot)
+ubuntu@ubuntu:~$ sudo traceroute -I iith.ac.in
+traceroute to iith.ac.in (218.248.6.135), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  20.215 ms  0.465 ms *
+ 2  192.168.64.112 (192.168.64.112)  4.456 ms * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  192.168.227.98 (192.168.227.98)  38.314 ms  51.265 ms  67.844 ms
+ 7  192.168.60.228 (192.168.60.228)  65.723 ms 192.168.60.226 (192.168.60.226)  35.233 ms 192.168.60.228 (192.168.60.228)  45.665 ms
+ 8  * * *
+ 9  * * *
+10  * * *
+11  49.44.187.217 (49.44.187.217)  61.922 ms  44.168 ms  63.559 ms
+12  * * *
+13  * * *
+14  * * *
+15  www.iith.ac.in (218.248.6.135)  93.182 ms  92.530 ms  87.795 ms
+ubuntu@ubuntu:~$ sudo traceroute -I web.mit.edu
+traceroute to web.mit.edu (184.84.202.73), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  23.782 ms  0.447 ms  0.648 ms
+ 2  192.168.64.112 (192.168.64.112)  3.379 ms * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  192.168.227.98 (192.168.227.98)  37.657 ms  37.678 ms  36.828 ms
+ 7  192.168.60.232 (192.168.60.232)  35.276 ms 192.168.60.230 (192.168.60.230)  23.499 ms  28.794 ms
+ 8  * * *
+ 9  * * *
+10  * * *
+11  49.44.113.1 (49.44.113.1)  75.627 ms  61.408 ms  60.705 ms
+12  a184-84-202-73.deploy.static.akamaitechnologies.com (184.84.202.73)  55.556 ms  62.658 ms  71.895 ms
+ubuntu@ubuntu:~$ sudo traceroute -I www.google.com
+traceroute to www.google.com (142.250.192.68), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  0.606 ms * *
+ 2  192.168.64.112 (192.168.64.112)  3.806 ms * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  192.168.227.99 (192.168.227.99)  57.727 ms  45.948 ms  44.344 ms
+ 7  192.168.60.226 (192.168.60.226)  43.865 ms 192.168.60.228 (192.168.60.228)  44.517 ms  45.897 ms
+ 8  * * *
+ 9  * * *
+10  74.125.51.4 (74.125.51.4)  47.409 ms  53.439 ms  56.786 ms
+11  142.251.79.227 (142.251.79.227)  70.707 ms  49.056 ms  57.566 ms
+12  172.253.75.14 (172.253.75.14)  59.090 ms  59.602 ms  57.658 ms
+13  64.233.174.2 (64.233.174.2)  58.286 ms * *
+14  142.250.238.206 (142.250.238.206)  90.600 ms * *
+15  192.178.110.107 (192.178.110.107)  88.052 ms * *
+16  142.250.61.203 (142.250.61.203)  92.763 ms * *
+17  bom12s16-in-f4.1e100.net (142.250.192.68)  83.095 ms * *
+
+
+
+
+Identifying number of hops between source and destination:
+     1) IITH website
+                               College Wi-Fi: 6 hops
+                               Mobile 4G: 15 hops
+     2) MIT Website
+                                 College Wi-Fi: 13 hops
+                                 Mobile 4G: 12 hops
+     3)Google
+                                 College Wi-Fi: 14 hops
+                                 Mobile 4G: 17 hops  
+By observing this we can conclude that the number of hops generally increases with geographic distance. Accessing with IITH Wi-Fi, the IITH website has fewer hops compared to MIT and Google. Accessing with mobile 4G network, the number of hops increases most probably due to increased intermediate networks and the nature of mobile networks with potentially more complex routing paths.
+
+
+Observing the delays(Round Trip Times):
+1) IITH Website
+College Wi-Fi: RTTs range from 0.365 ms to 13.905 ms.
+Mobile 4G: RTTs range from 0.465 ms to 93.182 ms.
+2) MIT Website
+College Wi-Fi: RTTs range from 0.413 ms to 40.841 ms.
+Mobile 4G: RTTs range from 0.447 ms to 75.627 ms.
+3) Google
+College Wi-Fi: RTTs range from 0.320 ms to 33.961 ms.
+Mobile 4G: RTTs range from 0.606 ms to 92.763 ms.
+
+
+By observing the round trip times(RTTs) we can see RTT value generally increase with distance from the source to destination. Compared to the 4G network Wi-Fi shows lower RTTs, most probably due to lower latency and more direct routing paths in a wired or stable Wi-Fi network compared to mobile network which might involve IP overheads.
+
+
+Identifying Significant Delays Between Hops:
+IITH Website - College Wi-Fi
+Significant increase from hop 1 to hop 6, likely due to queuing or crossing into different network segments . Due to congestion queuing might happen and the network exchange points may experience higher traffic which can cause delay.
+
+
+a) The number of hops generally increase with geographic distance to the destination. This we can conclude by IITH(local) to MIT(international destination).
+b) RTT values increase with distance. Mobile 4G networks show higher RTTs compared to IITH Wi-Fi.
+c) Patterns in Delay Fluctuations likely due to queuing , routing , crossing international borders( international delay can be seen in MIT and Google). 
+
+
+Key Findings and Strange Patterns
+The number of hops and RTT values  increase with geographic distance.
+College Wi-Fi is more stable, with fewer hops and lower RTTs, while mobile 4G networks have variability.

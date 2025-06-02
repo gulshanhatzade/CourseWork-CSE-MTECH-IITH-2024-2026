@@ -1,0 +1,87 @@
+﻿GCQ9: Near-optimal Subnet Addressing
+100 points
+Due Nov 15, 2024
+Consider a router with 3 interfaces and the three attached subnets (A, B, and C) discussed in today's lecture. The number of hosts in subnets A, B, and C are 50, 12 and 31, respectively. The subnets share the 24 high-order bits of the address space with the prefix of 171.18.12/24. Assign subnet addresses to each of the subnets (A, B, and C) so that the amount of address space assigned is minimal, and at the same time leaving the largest possible contiguous address space available for assignment if a new subnet were to be added. List out the contents of routing/forwarding tables of one of the hosts in each subnets and of the router.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Solution:
+We have 171.18.12.0/24
+First I am assigning to subnet A, C and then to subnet B because A is having mores number of host, followed by C and B is having least number of hosts. Let 0,1,2 be the respective interfaces between router and host A, B, C respectively,
+Subnet address for A is 171.18.12.0/26
+Subnet address for C is 171.18.12.64/26
+Subnet address for B is 171.18.12.128/28
+
+
+
+
+
+
+Routing Table for Router is -
+
+
+Prefix                                Interface
+-------------------------------------------------------
+171.18.12.0/26                1
+171.18.12.64/26                3
+171.18.12.128/28        2
+
+
+
+
+
+
+Forwarding table of host A is -
+
+
+Prefix                                Interface
+----------------------------------------------------------------
+171.18.12.0/26                0.0.0.0
+default                                Interface 0
+
+
+
+
+
+
+Forwarding table of host B is -
+
+
+Prefix                                Interface
+----------------------------------------------------------------
+171.18.12.128/28        0.0.0.0
+default                                Interface 1
+
+
+
+
+
+
+Forwarding table of host C is -
+
+
+Prefix                                Interface
+------------------------------------------------------------------
+171.18.12.64/26                0.0.0.0
+default                                Interface 2

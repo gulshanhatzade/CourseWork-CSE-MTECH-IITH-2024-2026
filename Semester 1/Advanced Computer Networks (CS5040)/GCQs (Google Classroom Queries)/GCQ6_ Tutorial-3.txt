@@ -1,0 +1,166 @@
+﻿GCQ6: Tutorial-3
+10 points
+Due Sep 6, 2024
+In this problem, we study the performance of HTTP, comparing non-persistent HTTP with persistent HTTP. Suppose the base HTML page your browser wants to download from nytimes.com website is 500KBytes long and it references 5 images (with file names img01.jpg, img02.jpg, … img5.jpg), each of which is 100Kbits in length. The RTT between your browser and the web server is 250 msec. The 5 images are hosted on a nearby CDN server which has a 50 msec RTT from your browser. We will abstract the network path between your browser and the web server as a 10Mbps link and the one between your browser and the CDN server as having a 50Mbps link. You can assume that the time it takes to transmit HTTP GET request messages into the “link” is zero, but you should account for the time it takes to transmit the base HTML file and the image objects into the "link". This means that the server-to-client “link” has both a one-way propagation delay as well as a transmission delay associated with HTML file/images being sent. In your answers below, make sure to take into account the time needed to set up TCP connections using 3-way handshake (1 RTT). Draw timing diagrams showing messages being exchanged between various network entities by clearly marking timestamps of critical events in your notebook and answer step-by-step what is the loading time in each of the following scenarios.
+a) Non-persistent HTTP (and assuming no parallel connections are opened between the browser and server) case: How long is the response time -- the time from when the client requests the base HTML file by entering its URL in the browser to the point in time when the HTML page and its embedded objects are downloaded and ready for rendering by the browser? Make sure you describe the various components that contribute to this delay.
+
+
+
+
+b) Again assume non-persistent HTTP, but now assume that the browser can open as many parallel TCP connections to the web server or CDN server as it wants. What is the response time in this case?
+
+
+c) Now assume persistent HTTP (i.e., HTTP1.1 without pipelining). What is the response time, assuming no parallel connections?
+
+
+d) Now suppose persistent HTTP with pipelining is used. What is the response time?
+
+
+e) Again assume persistent HTTP with pipelining, but now assume that the browser can open as many parallel TCP connections to the web server or CDN server as it wants. What is the response time in this case?
+
+
+f) Assume HTTP/2 which uses multiplexing at frame level with the frame length of 50 Kbits. Ignoring HEADER frames, what is the response time? How this response time fares with that of case e) when there is a packet loss on the link between the browser and the CDN server.
+
+
+g) What is the speed up in the response time due to usage of CDN server for each of the above cases vis-a-vis no CDN (i.e., all images are hosted on the website itself)?
+
+
+h) Progressive rendering case: the browser begins parsing the base HTML file as soon as it starts receiving it from the server. This means that as the browser receives portions of the HTML file, it begins parsing and rendering those portions immediately rather than waiting for the entire file to be downloaded. Also it starts fetching additional objects (e.g., images/scripts) as soon as it parses tags of these objects. Redo case f (HTTP/2) assuming that the browser parses the image tag of an image at every 80 msecs from the start of receiving the base HTML file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Solution:
+Base HTML file size L1= 500 K Bytes
+5 images each 100 K bits
+ For server- 
+RTT1(server- web browser)=250 msec
+R1= 10Mbps                                     
+tf1=L1/R1= 500KB/ 10Mbps= 400 msec
+
+
+For CDN server
+        RTT2(browser- CDN server)=50 msec
+        R2= 50Mbps
+        tf2= L2/R2 = 100 Kbits/ 50Mbps= 2 ms
+
+
+a) Non-persistent HTTP with no parallel connection
+Response time= 1RTT1(TCP connection) + 1RTT1(HTTP CONNECTION) + tf1(delay) + 5*((2RTT2(for loading images) + tf2( one tf for each image)))
+= 2RTT1 + tf1 + 5(2*RTT + tf2)
+                =1410 msec
+b) Non persistent HTTP parallel
+Response time=( 1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (2RTT2(for  all 5 images due to parallel connection) + 5tf2(one transmission time at CDN server side for each image))
+=(2RTT1 + tf1) + (2RTT2 +  5tf2)
+=900+ 102
+=1010 ms
+c) Persistent HTTP with no pipeline and no parallel connection 
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + 5*( 1RTT2+ tf2)( one rtt plus one tf for each image in parallel connection)
+= (2RTT1 + tf1) +1RTT(TCP connection) 5*(1RTT2 + tf2)(one for each file)
+= 900+50+ 5*52
+=1210 ms
+d) Persistent HTTP with pipeline
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (2RTT2 + 5tf2)(one transmission time for each image in pipeline)
+= (2RTT1 + tf1) + (2RTT2 + 5tf2)
+=900 + 100+10
+=1010 ms
+e)Persistent HTTP with pipeline + many parallel connection
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (2RTT2 + 5tf2)(one transmission time for each image in pipeline)
+= (2RTT1 + tf1) + (2RTT2 + 5tf2)
+=900 + 100+10
+=1010 ms
+f) Frame length = 50K bits
+No of frames for base HTML file=500KB/50Kb
+=n=80 frames
+Number of cdn frames = Image size/ frame length
+= 100K bits/ 50K bits
+=2 frames
+tfCDN= L/(2*R)
+= 2/2
+= 1 ms
+tfserver=L/R=50Kb/10Mbs
+=5 ms
+
+
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) +n* tf server + (2RTT2 + 2*5 tfCDN)(each image is divided into 2 frames  and 5 such images are availabe)
+=  (2RTT1 + n*tfserver) + (2RTT2 + 10*tfnew)
+= 500 + 5*80 +100+ 10
+=1010 ms
+The response time in case f is same as that of case e. It divides the frames, but when there is packet loss then case f of dividing to frames wins clearly, as in case e big frames need to send which saves times in case f.
+
+
+
+
+g) 
+tf images=L/R
+=100Kb/10Mbps
+=10 ms
+g.a) Without CDN
+        Non-persistent HTTP with no parallel connection
+Response time= 1RTT1(TCP connection) + 1RTT1(HTTP CONNECTION) + tf1(delay) + 5*(2RTT1(for loading images) +  tfimage( one tf for each image))
+=900 + 5(500+10)
+= 3450 ms
+        Speed up =3450/1410=2.446
+g.b) Non persistent HTTP parallel
+Response time=( 1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (2RTT1(for  all 5 images due to parallel connection) + 5tf image(one transmission time at  server side for each image))
+=(2RTT1 + tf1) + (2RTT1 +  5tf image)
+= 900+500+50
+=1450 ms
+Speed up =1450/1010=1.435
+g.c) Persistent HTTP with no pipeline and no parallel connection 
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + 5*( 1RTT1+ tf image)( one rtt plus one tf for each image in parallel connection)
+= (2RTT1 + tf1) + 5*(1RTT1 + tf image)
+= 900+5*260
+=2200 ms
+Speed up =2200/1210=1.818
+g.d) Persistent HTTP with pipeline
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (RTT1+ 5tf image)(one transmission time for each image in pipeline)
+= (2RTT1 + tf1) + (1RTT1 + 5tf image)
+=900 + 250+50
+=1200 ms
+Speed up =1200/1010=1.188
+g.e) Persistent HTTP with pipeline + many parallel connection
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) + tf1) + (RTT1+ 5tf image)(one transmission time for each image in pipeline)
+= (2RTT1 + tf1) + (1RTT1 + 5tf image)
+=900 + 250+50
+=1200 ms
+Speed up =12001010=1.188
+g.f)  Frame length = 50K bits
+Number of frames = Image size/ frame length
+= 100K bits/ 50K bits
+=2
+
+
+Response time=  1RTT1(tcp syn- ack) + 1RTT1(HTTP get- response) +nL/R+ (1RTT1 +2*5 tfnew)(each image is divided into 2 frames  and 5 such images are availabe)
+=  (2RTT1 +n* tf) + (RTT1 + 10*tf image)
+= 500+80*5+250+10*5
+=1200 ms
+The response time in case f is same as that of case e. It divides the frames, but when there is packet loss then case f of dividing to frames wins clearly, as in case e big frames need to send which saves times in case f.
+Speed up =1200/1010=1.188
+
+
+h)  Progressive rendering case
+Tf server for base HTML file = 50Kb/10Mbps =5 ms
+Number of frames for base HTML file= 500KB/50Kb= 80
+
+
+Tf CDN server for images= 50kb/50 mbps =1ms
+Number of frames each image =2
+At time 2RTT+ 80ms= 500+5+80=585 , the first image request will be sent, and it will be completed in 2RTT+2tf=102, so now time is =585+102=687
+At time 585+80=665 the request for 2nd  image will sent to CDN and after time 665+52=717  it will be completed.
+At time 665+80=745  the request for 3rd image will sent to CDN and after time 745+52=797  it will be completed.
+At time 745+80=825  the request for the 4th image will sent to CDN and after time 825+52=877 it will be completed.
+At time 825+80=905 the request for 3rd image will sent to CDN and after time 905+52=957 ms  it will be completed.
+So, the response time is 957 ms.

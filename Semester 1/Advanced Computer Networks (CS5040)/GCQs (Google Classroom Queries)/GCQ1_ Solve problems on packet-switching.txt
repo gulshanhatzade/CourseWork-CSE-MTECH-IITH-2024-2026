@@ -1,0 +1,55 @@
+﻿GCQ1: Solve problems on packet-switching
+15 points
+Due Aug 6, 2024
+Solve Homework problem (Q1) given in slide #42 of today's slide deck. Also solve Chapter-1 of Kurose and Ross textbook’s exercise problems P6 and P7 and post your solutions here. No attachments/links are allowed. You need to write your solutions in plain text, by listing out the key steps of your solutions. No late submissions are allowed.
+
+
+
+
+
+
+Q1)
+a)Store and forward switching
+Total delay in transmitting P packets from source to destination over N links
+= P*tf + N*tp + (n-1)* tf
+= P*L/R + N*D/S + (n-1)* L/R
+=(P +N-1)*L/R +  N*D/S
+
+
+b) Pass through switching
+Total delay in transmitting P packets from source to destination over N links
+= P*tf + N*tp
+=P*L/R + N*D/S
+
+
+P6)
+a. Propagation delay, dprop=m/s sec
+b. Transmission time of the packet, dtrans= L/R s
+c.  The end-to-end delay= (L/R + m/s) s
+d. The last bit of the packet will start propogating.
+e. If dprop is greater than dtrans. At time t = dtrans
+Then, the first bit of the packet is present on the link.
+f. If dprop is less than dtrans. At time t = dtrans,
+Then the first bit of the packet is at destination.
+g. dprop = dtrans
+  m/s=L/R
+     m/(2.5* 10^8)= (1500*8 bit)/(10*10^6)
+      m=300000 meter
+     m=300km
+
+
+
+
+
+
+P7)
+Time require to generate all the bits
+56.8/(64*10^3)= 7ms
+
+
+For transmitting packet, time required is
+56.8/(10*10^6)= 0.0488 ms
+
+
+tp=10ms
+delay= 7ms + 0.0488 ms +10ms= 17.0488 ms
