@@ -1,0 +1,28 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	dpd
+#open	2025-03-05-21-40-32
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	proto	analyzer	failure_reason
+#types	time	string	addr	port	addr	port	enum	string	string
+165.412047	CTVr3B2FmeDGTOT6O5	10.0.2.200	49479	52.91.236.176	80	tcp	HTTP	not a http reply line
+169.550779	ChQHNp2ezGbrWPeez6	10.0.2.200	49533	52.91.236.176	80	tcp	HTTP	not a http reply line
+171.561657	C8vDEr2VAJwQDUDiV8	10.0.2.200	49572	52.91.236.176	80	tcp	HTTP	not a http reply line
+172.889732	CoIfWJ3ONUU1T6lEV1	10.0.2.200	49585	52.90.167.149	80	tcp	HTTP	not a http reply line
+172.971541	CPrLlg2U1Ar1S3FWd1	10.0.2.200	49574	52.91.236.176	80	tcp	HTTP	not a http reply line
+175.572783	CTjuLk1rVnYbCeKQtb	10.0.2.200	49630	52.91.236.176	80	tcp	HTTP	not a http reply line
+180.575624	CYnWgi1lkhLiqFBig6	10.0.2.200	49664	52.91.236.176	80	tcp	HTTP	not a http reply line
+184.098482	C41gbnKkDPWCuhxF8	10.0.2.200	49669	52.91.236.176	80	tcp	HTTP	not a http reply line
+184.796092	CZfRk533SQ9FTp0LJl	10.0.2.200	49672	52.91.236.176	80	tcp	HTTP	not a http reply line
+185.037185	CYhJGF34qfsDUFv69	10.0.2.200	49673	52.91.236.176	80	tcp	HTTP	not a http reply line
+185.275789	C0R5Zx3xdxkQMKxtWb	10.0.2.200	49674	52.91.236.176	80	tcp	HTTP	not a http reply line
+193.800809	CR2iAxJy0sOOuauub	10.0.2.200	49676	52.91.236.176	80	tcp	HTTP	not a http reply line
+199.802032	CnMCDL1QqULlZkP9r9	10.0.2.200	49677	52.91.236.176	80	tcp	HTTP	not a http reply line
+213.840164	CDWJhc2rpPCMEmCI65	10.0.2.200	49678	52.91.236.176	80	tcp	HTTP	not a http reply line
+229.007153	CwiAKS3i7cx362LIE7	10.0.2.200	49680	52.91.236.176	80	tcp	HTTP	not a http reply line
+243.016549	CbqqPu463lKuf4TqXc	10.0.2.200	49681	52.91.236.176	80	tcp	HTTP	not a http reply line
+290.622229	Czve4y4ef0gJUsLgOk	10.0.2.200	49695	52.91.236.176	80	tcp	HTTP	not a http reply line
+895.963654	CHtxCb4Z5A9wfDH9Hj	10.0.2.200	49813	52.91.236.176	80	tcp	HTTP	not a http reply line
+1152.609831	CrloRc4xiuFlZfEHJ6	10.0.2.200	49839	52.91.236.176	80	tcp	HTTP	not a http reply line
+#close	2025-03-05-21-40-32

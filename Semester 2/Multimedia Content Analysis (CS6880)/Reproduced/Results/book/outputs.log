@@ -1,0 +1,42 @@
+2025-03-27 23:30:07,632 - INFO: args: Namespace(sh_degree=3, feat_dim=32, n_offsets=10, voxel_size=0.005, update_depth=3, update_init_factor=16, update_hierachy_factor=4, use_feat_bank=False, source_path='/kaggle/input/spinnerf-dataset-processed/spinnerf_dataset_processed/book', model_path='outputs/spinnerf_dataset/book/gscream/', pretrained_model_path='', images='images', resolution=-1, white_background=False, data_device='cuda', eval=True, lod=0, specified_ply_path='/kaggle/input/spinnerf-dataset-processed/spinnerf_dataset_processed/book/sparse/0/points3D.ply', load_mask=True, load_depth=True, load_norm=True, load_midas=False, is_spin=True, is_ibr=False, ref_image_path='./refs/book_out.png', ref_depth_path='./refs/book_out_pred.npy', ref_normal_path='', ref_mask_path='', iterations=30000, position_lr_init=0.0, position_lr_final=0.0, position_lr_delay_mult=0.01, position_lr_max_steps=30000, offset_lr_init=0.01, offset_lr_final=0.0001, offset_lr_delay_mult=0.01, offset_lr_max_steps=30000, feature_lr=0.0075, opacity_lr=0.02, uncertainty_lr=0.0, scaling_lr=0.007, rotation_lr=0.002, mlp_opacity_lr_init=0.002, mlp_opacity_lr_final=2e-05, mlp_opacity_lr_delay_mult=0.01, mlp_opacity_lr_max_steps=30000, mlp_uncertainty_lr_init=0.002, mlp_uncertainty_lr_final=2e-05, mlp_uncertainty_lr_delay_mult=0.01, mlp_uncertainty_lr_max_steps=30000, mlp_cov_lr_init=0.004, mlp_cov_lr_final=0.004, mlp_cov_lr_delay_mult=0.01, mlp_cov_lr_max_steps=30000, mlp_color_lr_init=0.008, mlp_color_lr_final=5e-05, mlp_color_lr_delay_mult=0.01, mlp_color_lr_max_steps=30000, mlp_featurebank_lr_init=0.01, mlp_featurebank_lr_final=1e-05, mlp_featurebank_lr_delay_mult=0.01, mlp_featurebank_lr_max_steps=30000, discriminator_lr_init=0.01, discriminator_lr_final=1e-05, discriminator_lr_delay_mult=0.01, discriminator_lr_max_steps=30000, crossattn_lr_init=0.002, crossattn_lr_final=2e-05, crossattn_lr_delay_mult=0.01, crossattn_lr_max_steps=30000, selfattn_lr_init=0.01, selfattn_lr_final=1e-05, selfattn_lr_delay_mult=0.01, selfattn_lr_max_steps=30000, percent_dense=0.01, lambda_dssim=0.2, lambda_depth=1.0, start_stat=500, update_from=1500, update_interval=100, update_until=15000, start_crossattn_from=15000, min_opacity=0.005, success_threshold=0.8, densify_grad_threshold=0.0002, lpips_lr=0.0, lpips_b=20, perceptual_lr=0.0, perceptual_b=2, refer_rgb_lr=1.0, refer_rgb_lr_fg=20.0, other_rgb_lr=1.0, other_rgb_lr_fg=0.0, refer_depth_lr=1.0, refer_depth_lr_fg=100.0, refer_depth_lr_smooth=1.0, refer_depth_lr_smooth_edge=1.0, disp_smooth_lr=1.0, other_depth_lr=0.1, other_depth_lr_smooth=0.1, refer_normal_lr=0.0, other_normal_lr=0.0, refer_opacity_lr=0.0, other_opacity_lr=0.0, flat_lr=1.0, sparse_depth_lr=0.0, refer_warping_lr=0.0, vgg_lr=0.0, discriminator_lr=0.0, crossattn_lr=0.0, adv_lr=0.0, use_lama=False, pretrained_ply='', enable_crossattn_refview=1.0, enable_crossattn_otherview=1.0, attn_head_num=8, attn_head_dim=64, crossattn_feat_update_ema=0.03, enable_pe=0.0, enable_enlarge_samping=0.0, sampling_2D_enlarge_ratio=2.0, enable_edge_samping=1.0, enable_twopatch_samping=0.0, sampling_2D_small_ratio=0.6, enable_selfattn=0.0, selfattn_feat_update_ema=1.0, selfattn_knn_maxnum=2000, selfattn_sampling_rad=0.5, crossattn_start_iter=15000, convert_SHs_python=False, compute_cov3D_python=False, debug=False, ip='127.0.0.1', port=10001, debug_from=-1, detect_anomaly=False, warmup=False, use_wandb=False, test_iterations=[3000, 7000, 30000], save_iterations=[3000, 7000, 30000, 30000], quiet=False, checkpoint_iterations=[], start_checkpoint=None, gpu='0')
+2025-03-27 23:30:07,633 - INFO: using GPU 0
+2025-03-27 23:30:07,633 - INFO: save code failed~
+2025-03-27 23:30:07,633 - INFO: Optimizing outputs/spinnerf_dataset/book/gscream/
+2025-03-27 23:36:07,221 - INFO: 
+[ITER 3000] Evaluating test: L1 0.048599621281027794 PSNR 22.970571231842044
+2025-03-27 23:36:12,602 - INFO: 
+[ITER 3000] Evaluating train: L1 0.03801756352186203 PSNR 22.202661895751955
+2025-03-27 23:36:12,669 - INFO: 
+[ITER 3000] Saving Gaussians
+2025-03-27 23:45:57,969 - INFO: 
+[ITER 7000] Evaluating test: L1 0.04656364945694805 PSNR 23.35054054260254
+2025-03-27 23:46:01,720 - INFO: 
+[ITER 7000] Evaluating train: L1 0.034263477101922034 PSNR 22.585039138793945
+2025-03-27 23:46:01,770 - INFO: 
+[ITER 7000] Saving Gaussians
+2025-03-28 01:02:19,913 - INFO: 
+[ITER 30000] Evaluating test: L1 0.043741073459386826 PSNR 23.756010818481446
+2025-03-28 01:02:23,767 - INFO: 
+[ITER 30000] Evaluating train: L1 0.03180346079170704 PSNR 22.83686103820801
+2025-03-28 01:02:23,824 - INFO: 
+[ITER 30000] Saving Gaussians
+2025-03-28 01:02:27,206 - INFO: 
+Training complete.
+2025-03-28 01:02:27,207 - INFO: 
+Starting Rendering~
+2025-03-28 01:05:20,857 - INFO: Spiral FPS: [1;35m25.40873[0m
+2025-03-28 01:06:22,644 - INFO: Train FPS: [1;35m20.73799[0m
+2025-03-28 01:07:02,038 - INFO: Test FPS: [1;35m20.11701[0m
+2025-03-28 01:07:02,042 - INFO: 
+Rendering complete.
+2025-03-28 01:07:02,042 - INFO: 
+ Starting evaluation...
+2025-03-28 01:07:16,612 - INFO: model_paths: [1;35moutputs/spinnerf_dataset/book/gscream/[0m
+2025-03-28 01:07:16,613 - INFO:   SSIM : [1;35m   0.7855639[0m
+2025-03-28 01:07:16,614 - INFO:   PSNR : [1;35m  23.7546787[0m
+2025-03-28 01:07:16,615 - INFO:   LPIPS: [1;35m   0.2189643[0m
+2025-03-28 01:07:16,615 - INFO:   masked SSIM : [1;35m   0.2418801[0m
+2025-03-28 01:07:16,616 - INFO:   masked PSNR : [1;35m  16.2847023[0m
+2025-03-28 01:07:16,617 - INFO:   masked LPIPS: [1;35m   0.5479815[0m
+2025-03-28 01:07:16,623 - INFO: 
+Evaluating complete.

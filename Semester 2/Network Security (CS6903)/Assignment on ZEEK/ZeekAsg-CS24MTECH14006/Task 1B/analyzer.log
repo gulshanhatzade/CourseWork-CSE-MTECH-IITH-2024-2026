@@ -1,0 +1,30 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	analyzer
+#open	2025-03-05-21-40-32
+#fields	ts	cause	analyzer_kind	analyzer_name	uid	fuid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	failure_reason	failure_data
+#types	time	string	string	string	string	string	addr	port	addr	port	string	string
+103.142982	violation	protocol	QUIC	CsOGra2NaUm7sWYjec	-	10.0.2.200	34862	111.221.77.141	443	expected 215 bytes (20 available) (/private/tmp/zeek-20250107-7591-xz7mzt/zeek-7.1.0/src/analyzer/protocol/quic/QUIC.spicy:242:3-242:55)	\xa1#\x02\x15\xfb\xd7\x0b\x85\xf5\xfd\xf4}=\xc3\xb9\xeb\x0a\\:\xa1KQ\xe1x\x8e8
+165.412047	violation	protocol	HTTP	CTVr3B2FmeDGTOT6O5	-	10.0.2.200	49479	52.91.236.176	80	not a http reply line	-
+169.550779	violation	protocol	HTTP	ChQHNp2ezGbrWPeez6	-	10.0.2.200	49533	52.91.236.176	80	not a http reply line	-
+171.561657	violation	protocol	HTTP	C8vDEr2VAJwQDUDiV8	-	10.0.2.200	49572	52.91.236.176	80	not a http reply line	-
+172.889732	violation	protocol	HTTP	CoIfWJ3ONUU1T6lEV1	-	10.0.2.200	49585	52.90.167.149	80	not a http reply line	-
+172.971541	violation	protocol	HTTP	CPrLlg2U1Ar1S3FWd1	-	10.0.2.200	49574	52.91.236.176	80	not a http reply line	-
+175.572783	violation	protocol	HTTP	CTjuLk1rVnYbCeKQtb	-	10.0.2.200	49630	52.91.236.176	80	not a http reply line	-
+180.575624	violation	protocol	HTTP	CYnWgi1lkhLiqFBig6	-	10.0.2.200	49664	52.91.236.176	80	not a http reply line	-
+184.098482	violation	protocol	HTTP	C41gbnKkDPWCuhxF8	-	10.0.2.200	49669	52.91.236.176	80	not a http reply line	-
+184.796092	violation	protocol	HTTP	CZfRk533SQ9FTp0LJl	-	10.0.2.200	49672	52.91.236.176	80	not a http reply line	-
+185.037185	violation	protocol	HTTP	CYhJGF34qfsDUFv69	-	10.0.2.200	49673	52.91.236.176	80	not a http reply line	-
+185.275789	violation	protocol	HTTP	C0R5Zx3xdxkQMKxtWb	-	10.0.2.200	49674	52.91.236.176	80	not a http reply line	-
+193.800809	violation	protocol	HTTP	CR2iAxJy0sOOuauub	-	10.0.2.200	49676	52.91.236.176	80	not a http reply line	-
+199.802032	violation	protocol	HTTP	CnMCDL1QqULlZkP9r9	-	10.0.2.200	49677	52.91.236.176	80	not a http reply line	-
+213.840164	violation	protocol	HTTP	CDWJhc2rpPCMEmCI65	-	10.0.2.200	49678	52.91.236.176	80	not a http reply line	-
+229.007153	violation	protocol	HTTP	CwiAKS3i7cx362LIE7	-	10.0.2.200	49680	52.91.236.176	80	not a http reply line	-
+243.016549	violation	protocol	HTTP	CbqqPu463lKuf4TqXc	-	10.0.2.200	49681	52.91.236.176	80	not a http reply line	-
+290.622229	violation	protocol	HTTP	Czve4y4ef0gJUsLgOk	-	10.0.2.200	49695	52.91.236.176	80	not a http reply line	-
+895.963654	violation	protocol	HTTP	CHtxCb4Z5A9wfDH9Hj	-	10.0.2.200	49813	52.91.236.176	80	not a http reply line	-
+1152.609831	violation	protocol	HTTP	CrloRc4xiuFlZfEHJ6	-	10.0.2.200	49839	52.91.236.176	80	not a http reply line	-
+1204.134405	violation	protocol	QUIC	CPI9iK3BZM8ESLQIw1	-	10.0.2.200	34862	64.4.23.147	443	expected 164 bytes (20 available) (/private/tmp/zeek-20250107-7591-xz7mzt/zeek-7.1.0/src/analyzer/protocol/quic/QUIC.spicy:242:3-242:55)	\x91\xae\x02\xe2\xc6\xa4\xa3\x1c\xaa$P\x96\xa3\xfb\xe2\x8df\xc7(\xd7\xf5\xc0O\xd73\x9d
+#close	2025-03-05-21-40-32

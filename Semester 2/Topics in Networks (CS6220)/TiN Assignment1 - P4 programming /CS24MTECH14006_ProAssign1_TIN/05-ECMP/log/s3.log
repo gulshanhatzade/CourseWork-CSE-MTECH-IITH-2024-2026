@@ -1,0 +1,226 @@
+Warning: you requested the nanomsg event logger, but bmv2 was compiled without -DBMELOG, and the event logger cannot be activated
+Calling target program-options parser
+[06:22:23.385] [bmv2] [D] [thread 9792] Set default default entry for table 'tbl_ecmp87': ecmp87 - 
+[06:22:23.385] [bmv2] [D] [thread 9792] Set default default entry for table 'MyIngress.ipv4_lpm': MyIngress.drop - 
+[06:22:23.385] [bmv2] [D] [thread 9792] Set default default entry for table 'MyIngress.ecmp_group_to_nhop': NoAction - 
+[06:22:23.385] [bmv2] [D] [thread 9792] Set default default entry for table 'tbl_ecmp114': ecmp114 - 
+Adding interface s3-eth1 as port 1
+[06:22:23.387] [bmv2] [D] [thread 9792] Adding interface s3-eth1 as port 1
+Adding interface s3-eth2 as port 2
+[06:22:23.494] [bmv2] [D] [thread 9792] Adding interface s3-eth2 as port 2
+[06:22:23.616] [bmv2] [I] [thread 9792] Starting Thrift server on port 9092
+[06:22:23.616] [bmv2] [I] [thread 9792] Thrift server was started
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Processing packet received on port 2
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Parser 'parser': start
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Extracting header 'ethernet'
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[06:22:23.793] [bmv2] [T] [thread 9798] [0.0] [cxt 0] Bytes parsed: 14
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Parser 'parser': end
+[06:22:23.793] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Pipeline 'ingress': start
+[06:22:23.793] [bmv2] [T] [thread 9798] [0.0] [cxt 0] p4src/ecmp.p4(86) Condition "standard_metadata.ingress_port < 6" (node_2) is true
+[06:22:23.793] [bmv2] [T] [thread 9798] [0.0] [cxt 0] Applying table 'tbl_ecmp87'
+[06:22:23.794] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Looking up key:
+
+[06:22:23.794] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Table 'tbl_ecmp87': miss
+[06:22:23.794] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Action entry is ecmp87 - 
+[06:22:23.794] [bmv2] [T] [thread 9798] [0.0] [cxt 0] Action ecmp87
+[06:22:23.794] [bmv2] [T] [thread 9798] [0.0] [cxt 0] p4src/ecmp.p4(87) Primitive (bit<32>)standard_metadata.ingress_port
+[06:22:23.794] [bmv2] [T] [thread 9798] [0.0] [cxt 0] p4src/ecmp.p4(87) Primitive port_ingress_counter.count((bit<32>)standard_metadata.ingress_port)
+[06:22:23.794] [bmv2] [T] [thread 9798] [0.0] [cxt 0] Updated counter 'MyIngress.port_ingress_counter' at index 2
+[06:22:23.794] [bmv2] [T] [thread 9798] [0.0] [cxt 0] p4src/ecmp.p4(90) Condition "hdr.ipv4.isValid()" (node_4) is false
+[06:22:23.794] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Pipeline 'ingress': end
+[06:22:23.794] [bmv2] [D] [thread 9798] [0.0] [cxt 0] Egress port is 0
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Pipeline 'egress': start
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] p4src/ecmp.p4(113) Condition "standard_metadata.egress_port < 6" (node_9) is true
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] Applying table 'tbl_ecmp114'
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Looking up key:
+
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Table 'tbl_ecmp114': miss
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Action entry is ecmp114 - 
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] Action ecmp114
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] p4src/ecmp.p4(114) Primitive (bit<32>)standard_metadata.egress_port
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] p4src/ecmp.p4(114) Primitive port_egress_counter.count((bit<32>)standard_metadata.egress_port)
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] Updated counter 'MyEgress.port_egress_counter' at index 0
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Pipeline 'egress': end
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Deparser 'deparser': start
+[06:22:23.794] [bmv2] [T] [thread 9799] [0.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Deparsing header 'ethernet'
+[06:22:23.794] [bmv2] [D] [thread 9799] [0.0] [cxt 0] Deparser 'deparser': end
+[06:22:23.794] [bmv2] [D] [thread 9803] [0.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Processing packet received on port 1
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Parser 'parser': start
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Extracting header 'ethernet'
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] Bytes parsed: 14
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Parser 'parser': end
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Pipeline 'ingress': start
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] p4src/ecmp.p4(86) Condition "standard_metadata.ingress_port < 6" (node_2) is true
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] Applying table 'tbl_ecmp87'
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Looking up key:
+
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Table 'tbl_ecmp87': miss
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Action entry is ecmp87 - 
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] Action ecmp87
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] p4src/ecmp.p4(87) Primitive (bit<32>)standard_metadata.ingress_port
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] p4src/ecmp.p4(87) Primitive port_ingress_counter.count((bit<32>)standard_metadata.ingress_port)
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] Updated counter 'MyIngress.port_ingress_counter' at index 1
+[06:22:26.445] [bmv2] [T] [thread 9798] [1.0] [cxt 0] p4src/ecmp.p4(90) Condition "hdr.ipv4.isValid()" (node_4) is false
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Pipeline 'ingress': end
+[06:22:26.445] [bmv2] [D] [thread 9798] [1.0] [cxt 0] Egress port is 0
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Pipeline 'egress': start
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] p4src/ecmp.p4(113) Condition "standard_metadata.egress_port < 6" (node_9) is true
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] Applying table 'tbl_ecmp114'
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Looking up key:
+
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Table 'tbl_ecmp114': miss
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Action entry is ecmp114 - 
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] Action ecmp114
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] p4src/ecmp.p4(114) Primitive (bit<32>)standard_metadata.egress_port
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] p4src/ecmp.p4(114) Primitive port_egress_counter.count((bit<32>)standard_metadata.egress_port)
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] Updated counter 'MyEgress.port_egress_counter' at index 0
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Pipeline 'egress': end
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Deparser 'deparser': start
+[06:22:26.447] [bmv2] [T] [thread 9799] [1.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Deparsing header 'ethernet'
+[06:22:26.447] [bmv2] [D] [thread 9799] [1.0] [cxt 0] Deparser 'deparser': end
+[06:22:26.447] [bmv2] [D] [thread 9803] [1.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Processing packet received on port 1
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Parser 'parser': start
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Extracting header 'ethernet'
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Parser state 'start': key is 86dd
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] Bytes parsed: 14
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Parser 'parser': end
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Pipeline 'ingress': start
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] p4src/ecmp.p4(86) Condition "standard_metadata.ingress_port < 6" (node_2) is true
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] Applying table 'tbl_ecmp87'
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Looking up key:
+
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Table 'tbl_ecmp87': miss
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Action entry is ecmp87 - 
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] Action ecmp87
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] p4src/ecmp.p4(87) Primitive (bit<32>)standard_metadata.ingress_port
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] p4src/ecmp.p4(87) Primitive port_ingress_counter.count((bit<32>)standard_metadata.ingress_port)
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] Updated counter 'MyIngress.port_ingress_counter' at index 1
+[06:22:26.808] [bmv2] [T] [thread 9798] [2.0] [cxt 0] p4src/ecmp.p4(90) Condition "hdr.ipv4.isValid()" (node_4) is false
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Pipeline 'ingress': end
+[06:22:26.808] [bmv2] [D] [thread 9798] [2.0] [cxt 0] Egress port is 0
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Pipeline 'egress': start
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] p4src/ecmp.p4(113) Condition "standard_metadata.egress_port < 6" (node_9) is true
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] Applying table 'tbl_ecmp114'
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Looking up key:
+
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Table 'tbl_ecmp114': miss
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Action entry is ecmp114 - 
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] Action ecmp114
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] p4src/ecmp.p4(114) Primitive (bit<32>)standard_metadata.egress_port
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] p4src/ecmp.p4(114) Primitive port_egress_counter.count((bit<32>)standard_metadata.egress_port)
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] Updated counter 'MyEgress.port_egress_counter' at index 0
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Pipeline 'egress': end
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Deparser 'deparser': start
+[06:22:26.808] [bmv2] [T] [thread 9799] [2.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Deparsing header 'ethernet'
+[06:22:26.808] [bmv2] [D] [thread 9799] [2.0] [cxt 0] Deparser 'deparser': end
+[06:22:26.808] [bmv2] [D] [thread 9803] [2.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Processing packet received on port 2
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Parser 'parser': start
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Extracting header 'ethernet'
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Parser state 'start': key is 86dd
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] Bytes parsed: 14
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Parser 'parser': end
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Pipeline 'ingress': start
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] p4src/ecmp.p4(86) Condition "standard_metadata.ingress_port < 6" (node_2) is true
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] Applying table 'tbl_ecmp87'
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Looking up key:
+
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Table 'tbl_ecmp87': miss
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Action entry is ecmp87 - 
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] Action ecmp87
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] p4src/ecmp.p4(87) Primitive (bit<32>)standard_metadata.ingress_port
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] p4src/ecmp.p4(87) Primitive port_ingress_counter.count((bit<32>)standard_metadata.ingress_port)
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] Updated counter 'MyIngress.port_ingress_counter' at index 2
+[06:22:26.939] [bmv2] [T] [thread 9798] [3.0] [cxt 0] p4src/ecmp.p4(90) Condition "hdr.ipv4.isValid()" (node_4) is false
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Pipeline 'ingress': end
+[06:22:26.939] [bmv2] [D] [thread 9798] [3.0] [cxt 0] Egress port is 0
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Pipeline 'egress': start
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] p4src/ecmp.p4(113) Condition "standard_metadata.egress_port < 6" (node_9) is true
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] Applying table 'tbl_ecmp114'
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Looking up key:
+
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Table 'tbl_ecmp114': miss
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Action entry is ecmp114 - 
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] Action ecmp114
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] p4src/ecmp.p4(114) Primitive (bit<32>)standard_metadata.egress_port
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] p4src/ecmp.p4(114) Primitive port_egress_counter.count((bit<32>)standard_metadata.egress_port)
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] Updated counter 'MyEgress.port_egress_counter' at index 0
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Pipeline 'egress': end
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Deparser 'deparser': start
+[06:22:26.939] [bmv2] [T] [thread 9799] [3.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Deparsing header 'ethernet'
+[06:22:26.939] [bmv2] [D] [thread 9799] [3.0] [cxt 0] Deparser 'deparser': end
+[06:22:26.939] [bmv2] [D] [thread 9803] [3.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Processing packet received on port 2
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Parser 'parser': start
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Extracting header 'ethernet'
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Parser state 'start': key is 86dd
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] Bytes parsed: 14
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Parser 'parser': end
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Pipeline 'ingress': start
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] p4src/ecmp.p4(86) Condition "standard_metadata.ingress_port < 6" (node_2) is true
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] Applying table 'tbl_ecmp87'
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Looking up key:
+
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Table 'tbl_ecmp87': miss
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Action entry is ecmp87 - 
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] Action ecmp87
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] p4src/ecmp.p4(87) Primitive (bit<32>)standard_metadata.ingress_port
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] p4src/ecmp.p4(87) Primitive port_ingress_counter.count((bit<32>)standard_metadata.ingress_port)
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] Updated counter 'MyIngress.port_ingress_counter' at index 2
+[06:22:26.960] [bmv2] [T] [thread 9798] [4.0] [cxt 0] p4src/ecmp.p4(90) Condition "hdr.ipv4.isValid()" (node_4) is false
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Pipeline 'ingress': end
+[06:22:26.960] [bmv2] [D] [thread 9798] [4.0] [cxt 0] Egress port is 0
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Pipeline 'egress': start
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] p4src/ecmp.p4(113) Condition "standard_metadata.egress_port < 6" (node_9) is true
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] Applying table 'tbl_ecmp114'
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Looking up key:
+
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Table 'tbl_ecmp114': miss
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Action entry is ecmp114 - 
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] Action ecmp114
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] p4src/ecmp.p4(114) Primitive (bit<32>)standard_metadata.egress_port
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] p4src/ecmp.p4(114) Primitive port_egress_counter.count((bit<32>)standard_metadata.egress_port)
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] Updated counter 'MyEgress.port_egress_counter' at index 0
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Pipeline 'egress': end
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Deparser 'deparser': start
+[06:22:26.960] [bmv2] [T] [thread 9799] [4.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Deparsing header 'ethernet'
+[06:22:26.960] [bmv2] [D] [thread 9799] [4.0] [cxt 0] Deparser 'deparser': end
+[06:22:26.960] [bmv2] [D] [thread 9803] [4.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[06:22:44.206] [bmv2] [T] [thread 9976] bm_get_config
+[06:22:44.207] [bmv2] [T] [thread 9976] bm_mt_get_entries
+[06:22:44.207] [bmv2] [T] [thread 9976] bm_mt_get_entries
+[06:22:44.216] [bmv2] [T] [thread 9976] bm_reset_state
+[06:22:44.217] [bmv2] [D] [thread 9976] Resetting simple_switch target-specific state
+[06:22:44.217] [bmv2] [D] [thread 9976] resetting PRE state
+[06:22:44.224] [bmv2] [T] [thread 9976] bm_set_default_action
+[06:22:44.224] [bmv2] [D] [thread 9976] Set default entry for table 'MyIngress.ipv4_lpm': MyIngress.drop - 
+[06:22:44.224] [bmv2] [T] [thread 9976] bm_set_default_action
+[06:22:44.224] [bmv2] [D] [thread 9976] Set default entry for table 'MyIngress.ecmp_group_to_nhop': MyIngress.drop - 
+[06:22:44.227] [bmv2] [T] [thread 9976] bm_table_add_entry
+[06:22:44.227] [bmv2] [D] [thread 9976] Entry 0 added to table 'MyIngress.ipv4_lpm'
+[06:22:44.227] [bmv2] [D] [thread 9976] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/24
+Action entry: MyIngress.set_nhop - 124779505e2f,1,
+
+[06:22:44.227] [bmv2] [T] [thread 9976] bm_table_add_entry
+[06:22:44.227] [bmv2] [D] [thread 9976] Entry 1 added to table 'MyIngress.ipv4_lpm'
+[06:22:44.227] [bmv2] [D] [thread 9976] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000602/24
+Action entry: MyIngress.set_nhop - cef966280c5d,2,
+

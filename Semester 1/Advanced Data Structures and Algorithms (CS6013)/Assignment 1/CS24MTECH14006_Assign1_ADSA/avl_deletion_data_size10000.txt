@@ -1,0 +1,2 @@
+Average Rotations: 10035.419922
+Average Height: 14.000000

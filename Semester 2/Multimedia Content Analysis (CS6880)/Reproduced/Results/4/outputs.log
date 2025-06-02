@@ -1,0 +1,36 @@
+2025-04-06 02:56:17,103 - INFO: args: Namespace(sh_degree=3, feat_dim=32, n_offsets=10, voxel_size=0.005, update_depth=3, update_init_factor=16, update_hierachy_factor=4, use_feat_bank=False, source_path='/kaggle/input/spinnerf-dataset-processed/spinnerf_dataset_processed/4', model_path='outputs/spinnerf_dataset/4/gscream/', pretrained_model_path='', images='images', resolution=-1, white_background=False, data_device='cuda', eval=True, lod=0, specified_ply_path='/kaggle/input/spinnerf-dataset-processed/spinnerf_dataset_processed/4/sparse/0/points3D.ply', load_mask=True, load_depth=True, load_norm=True, load_midas=False, is_spin=True, is_ibr=False, ref_image_path='./refs/4_out.png', ref_depth_path='./refs/4_out_pred.npy', ref_normal_path='', ref_mask_path='', iterations=30000, position_lr_init=0.0, position_lr_final=0.0, position_lr_delay_mult=0.01, position_lr_max_steps=30000, offset_lr_init=0.01, offset_lr_final=0.0001, offset_lr_delay_mult=0.01, offset_lr_max_steps=30000, feature_lr=0.0075, opacity_lr=0.02, uncertainty_lr=0.0, scaling_lr=0.007, rotation_lr=0.002, mlp_opacity_lr_init=0.002, mlp_opacity_lr_final=2e-05, mlp_opacity_lr_delay_mult=0.01, mlp_opacity_lr_max_steps=30000, mlp_uncertainty_lr_init=0.002, mlp_uncertainty_lr_final=2e-05, mlp_uncertainty_lr_delay_mult=0.01, mlp_uncertainty_lr_max_steps=30000, mlp_cov_lr_init=0.004, mlp_cov_lr_final=0.004, mlp_cov_lr_delay_mult=0.01, mlp_cov_lr_max_steps=30000, mlp_color_lr_init=0.008, mlp_color_lr_final=5e-05, mlp_color_lr_delay_mult=0.01, mlp_color_lr_max_steps=30000, mlp_featurebank_lr_init=0.01, mlp_featurebank_lr_final=1e-05, mlp_featurebank_lr_delay_mult=0.01, mlp_featurebank_lr_max_steps=30000, discriminator_lr_init=0.01, discriminator_lr_final=1e-05, discriminator_lr_delay_mult=0.01, discriminator_lr_max_steps=30000, crossattn_lr_init=0.002, crossattn_lr_final=2e-05, crossattn_lr_delay_mult=0.01, crossattn_lr_max_steps=30000, selfattn_lr_init=0.01, selfattn_lr_final=1e-05, selfattn_lr_delay_mult=0.01, selfattn_lr_max_steps=30000, percent_dense=0.01, lambda_dssim=0.2, lambda_depth=1.0, start_stat=500, update_from=1500, update_interval=100, update_until=15000, start_crossattn_from=15000, min_opacity=0.005, success_threshold=0.8, densify_grad_threshold=0.0002, lpips_lr=0.0, lpips_b=20, perceptual_lr=0.0, perceptual_b=2, refer_rgb_lr=1.0, refer_rgb_lr_fg=20.0, other_rgb_lr=1.0, other_rgb_lr_fg=0.0, refer_depth_lr=1.0, refer_depth_lr_fg=100.0, refer_depth_lr_smooth=1.0, refer_depth_lr_smooth_edge=1.0, disp_smooth_lr=1.0, other_depth_lr=0.1, other_depth_lr_smooth=0.1, refer_normal_lr=0.0, other_normal_lr=0.0, refer_opacity_lr=0.0, other_opacity_lr=0.0, flat_lr=1.0, sparse_depth_lr=0.0, refer_warping_lr=0.0, vgg_lr=0.0, discriminator_lr=0.0, crossattn_lr=0.0, adv_lr=0.0, use_lama=False, pretrained_ply='', enable_crossattn_refview=1.0, enable_crossattn_otherview=1.0, attn_head_num=8, attn_head_dim=64, crossattn_feat_update_ema=0.03, enable_pe=0.0, enable_enlarge_samping=0.0, sampling_2D_enlarge_ratio=2.0, enable_edge_samping=1.0, enable_twopatch_samping=0.0, sampling_2D_small_ratio=0.6, enable_selfattn=0.0, selfattn_feat_update_ema=1.0, selfattn_knn_maxnum=2000, selfattn_sampling_rad=0.5, crossattn_start_iter=15000, convert_SHs_python=False, compute_cov3D_python=False, debug=False, ip='127.0.0.1', port=10001, debug_from=-1, detect_anomaly=False, warmup=False, use_wandb=False, test_iterations=[3000, 7000, 30000], save_iterations=[3000, 7000, 30000, 30000], quiet=False, checkpoint_iterations=[], start_checkpoint=None, gpu='0')
+2025-04-06 02:56:17,104 - INFO: using GPU 0
+2025-04-06 02:56:17,104 - INFO: save code failed~
+2025-04-06 02:56:17,105 - INFO: Optimizing outputs/spinnerf_dataset/4/gscream/
+2025-04-06 03:03:16,990 - INFO: 
+[ITER 3000] Evaluating test: L1 0.05613975524902344 PSNR 21.813672828674317
+2025-04-06 03:03:23,333 - INFO: 
+[ITER 3000] Evaluating train: L1 0.04588137045502663 PSNR 21.5956600189209
+2025-04-06 03:03:23,407 - INFO: 
+[ITER 3000] Saving Gaussians
+2025-04-06 03:17:18,370 - INFO: 
+[ITER 7000] Evaluating test: L1 0.05517421448603273 PSNR 22.084081792831423
+2025-04-06 03:17:22,857 - INFO: 
+[ITER 7000] Evaluating train: L1 0.04537396207451821 PSNR 21.595857620239258
+2025-04-06 03:17:22,918 - INFO: 
+[ITER 7000] Saving Gaussians
+2025-04-06 04:39:57,709 - INFO: 
+Training complete.
+2025-04-06 04:39:57,710 - INFO: 
+Starting Rendering~
+2025-04-06 04:43:17,727 - INFO: Spiral FPS: [1;35m19.65761[0m
+2025-04-06 04:44:27,831 - INFO: Train FPS: [1;35m17.33709[0m
+2025-04-06 04:45:10,966 - INFO: Test FPS: [1;35m19.92603[0m
+2025-04-06 04:45:10,999 - INFO: 
+Rendering complete.
+2025-04-06 04:45:11,000 - INFO: 
+ Starting evaluation...
+2025-04-06 04:45:26,749 - INFO: model_paths: [1;35moutputs/spinnerf_dataset/4/gscream/[0m
+2025-04-06 04:45:26,751 - INFO:   SSIM : [1;35m   0.5701745[0m
+2025-04-06 04:45:26,752 - INFO:   PSNR : [1;35m  22.0831337[0m
+2025-04-06 04:45:26,752 - INFO:   LPIPS: [1;35m   0.3348828[0m
+2025-04-06 04:45:26,753 - INFO:   masked SSIM : [1;35m   0.4053048[0m
+2025-04-06 04:45:26,754 - INFO:   masked PSNR : [1;35m  21.1257591[0m
+2025-04-06 04:45:26,755 - INFO:   masked LPIPS: [1;35m   0.7118157[0m
+2025-04-06 04:45:26,762 - INFO: 
+Evaluating complete.

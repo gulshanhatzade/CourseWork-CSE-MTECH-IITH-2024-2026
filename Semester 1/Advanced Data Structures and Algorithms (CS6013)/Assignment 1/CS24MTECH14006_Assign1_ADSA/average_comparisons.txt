@@ -1,0 +1,4 @@
+Array size: 10000, Avg Comparisons: 155982.80, Std Dev: 4855.56
+Array size: 100000, Avg Comparisons: 1983168.44, Std Dev: 45869.03
+Array size: 1000000, Avg Comparisons: 29485141.55, Std Dev: 1175563.43
+Array size: 10000000, Avg Comparisons: 1209521403.58, Std Dev: 53523516.80

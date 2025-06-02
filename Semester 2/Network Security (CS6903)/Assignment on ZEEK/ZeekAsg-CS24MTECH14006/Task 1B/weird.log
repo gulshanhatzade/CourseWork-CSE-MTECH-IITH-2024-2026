@@ -1,0 +1,13 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	weird
+#open	2025-03-05-21-40-31
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	name	addl	notice	peer	source
+#types	time	string	addr	port	addr	port	string	string	bool	string	string
+1.000000	-	-	-	-	-	truncated_ethernet_frame	-	F	zeek	ETHERNET
+10.569537	CsmlZ328d78ccP2Iz3	10.0.2.2	11	10.0.2.200	0	bad_ICMP_checksum	-	F	zeek	ICMP
+167.036973	CZsOBzqyXAgXiK1R	10.0.2.200	49444	31.13.84.4	443	window_recision	-	F	zeek	-
+173.979383	C3jPPR2h1CA6yyoYg9	10.0.2.200	49604	46.228.164.13	80	HTTP_version_mismatch	-	F	zeek	HTTP
+#close	2025-03-05-21-40-32

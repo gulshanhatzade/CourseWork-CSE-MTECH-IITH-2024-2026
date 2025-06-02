@@ -1,0 +1,13 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	x509
+#open	2025-03-07-22-21-15
+#fields	ts	fingerprint	certificate.version	certificate.serial	certificate.subject	certificate.issuer	certificate.not_valid_before	certificate.not_valid_after	certificate.key_alg	certificate.sig_alg	certificate.key_type	certificate.key_length	certificate.exponent	certificate.curve	san.dns	san.uri	san.email	san.ip	basic_constraints.ca	basic_constraints.path_len	host_cert	client_cert
+#types	time	string	count	string	string	string	time	time	string	string	string	count	string	string	vector[string]	vector[string]	vector[string]	vector[addr]	bool	count	bool	bool
+1741365868.056440	6e89e7359deca1626a644b103f64cb3f822b09789dad213a4df6c32b912b47fd	3	96B98DC006C8AC56	CN=*.badssl.com,O=BadSSL,L=San Francisco,ST=California,C=US	CN=*.badssl.com,O=BadSSL,L=San Francisco,ST=California,C=US	1741102216.000000	1804174216.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	*.badssl.com,badssl.com	-	-	-	F	-	T	F
+1741365884.605292	514b68a0f3973e635458c6ef95bf9656f947778bc30d9bcf7f7f7989f1ee11fd	3	0B1B70A31FD5CBCA4283A23E719BDD3F	C=US,ST=California,O=Apple Inc.,CN=gdmf.apple.com	C=US,O=Apple Inc.,OU=Certification Authority,CN=Apple Server Authentication CA	1723236026.000000	1757364025.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	gdmf-ados.apple.com,gdmf.apple.com	-	-	-	F	-	T	F
+1741365884.605292	efd0c3352e8f5cc6c7678a5cb48370c341db58d39fc0569d5e106f02c4fcaceb	3	23697404ADCB8314	C=US,O=Apple Inc.,OU=Certification Authority,CN=Apple Server Authentication CA	CN=Apple Root CA,OU=Apple Certification Authority,O=Apple Inc.,C=US	1394223784.000000	1867609384.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	-	F	F
+1741365884.605292	b0b1730ecbc7ff4505142c49f1295e6eda6bcaed7e2c68c5be91b5a11001f024	3	02	CN=Apple Root CA,OU=Apple Certification Authority,O=Apple Inc.,C=US	CN=Apple Root CA,OU=Apple Certification Authority,O=Apple Inc.,C=US	1145981436.000000	2054650236.000000	rsaEncryption	sha1WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	-	F	F
+#close	2025-03-07-22-21-15

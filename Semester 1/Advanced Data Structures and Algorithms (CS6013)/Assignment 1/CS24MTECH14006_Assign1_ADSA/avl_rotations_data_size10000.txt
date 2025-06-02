@@ -1,0 +1,1 @@
+Average Rotations: 6977.830078

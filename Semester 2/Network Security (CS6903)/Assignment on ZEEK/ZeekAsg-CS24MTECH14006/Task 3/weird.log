@@ -1,0 +1,23 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	weird
+#open	2025-03-07-22-21-15
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	name	addl	notice	peer	source
+#types	time	string	addr	port	addr	port	string	string	bool	string	string
+1741365862.510796	CDgTwC1W3vz1Ukx9M4	172.21.148.210	61965	142.250.195.74	443	window_recision	-	F	zeek	-
+1741365866.274742	CG064F94tUWTEepB9	172.21.148.210	61966	142.250.205.14	443	window_recision	-	F	zeek	-
+1741365867.641597	CLjsVkC6sxpB2m1L4	172.21.148.210	61969	172.217.31.206	443	window_recision	-	F	zeek	-
+1741365868.056440	CKswKOt5GJVWGpOl3	172.21.148.210	61968	104.154.89.105	443	window_recision	-	F	zeek	-
+1741365868.059287	CYho2q3qjTrcm4fKef	172.21.148.210	61967	104.154.89.105	443	window_recision	-	F	zeek	-
+1741365868.308969	CcPbfTG3rcvPQnKVi	172.21.148.210	61970	104.154.89.105	443	window_recision	-	F	zeek	-
+1741365868.616023	CQUyfL1Sb8HdBfGTDj	172.21.148.210	61971	104.154.89.105	443	window_recision	-	F	zeek	-
+1741365868.848796	CBM6321r9WDmTlRZwg	172.21.148.210	61972	104.154.89.105	443	window_recision	-	F	zeek	-
+1741365876.761713	CglYL32h21Efn4qySj	172.21.148.210	61975	142.250.207.67	443	window_recision	-	F	zeek	-
+1741365877.049250	CZfF5e0VYQOUOUu2c	172.21.148.210	52925	17.248.239.65	443	window_recision	-	F	zeek	-
+1741365882.599350	CFjPAbNEBQxb62rv4	172.21.148.210	52926	17.248.239.65	443	window_recision	-	F	zeek	-
+1741365882.792073	CznkFk1gVuoVa6DPEa	172.21.148.210	52927	17.253.18.197	443	window_recision	-	F	zeek	-
+1741365884.604563	CaPytW3TK1ze9HcGL7	172.21.148.210	52928	17.111.103.20	443	window_recision	-	F	zeek	-
+1741365891.800700	Chy5Rq4NfVOYQhoRKj	172.21.148.210	61977	142.250.196.164	443	window_recision	-	F	zeek	-
+#close	2025-03-07-22-21-15
